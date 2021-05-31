@@ -63,8 +63,8 @@ def plot_graphs(logexp):
     '''Plot the graphs and save the figures in log_dir.'''
     log_dir = logs[logexp]['dir']
     log_data = logs[logexp]['data']
-    log_dir_aes = logs["embedded"]["dir"]
-    #log_name = logs[logexp]['name']
+    log_dir_aes = logs['embedded']["dir"]
+    
 
     data = []
     #_, axis = plt.subplots()
@@ -82,23 +82,25 @@ def plot_graphs(logexp):
     for log in log_data:
         csv_enc_data = None
         csv_dec_data = None
-        with open(f'{log_dir}/{log}.csv') as csv_file:
+        csv_dec2_data = []
+        with open(f'{log_dir}{log}.csv') as csv_file:
             tmp = []
             for row in csv.reader(csv_file):
                 if row != []:
                     if row[0] == "Encrypt":
                         my_csv_data = list(csv.reader(csv_file))
                         csv_enc_data = my_csv_data[1:1000]
-                        #csv_dec_data = my_csv_data[1003:2003]
+                        
 
-        with open(f'{log_dir_aes}/{log}.csv') as csv_file:
+        with open(f'{log_dir_aes}{log}.csv') as csv_file:
+            
             tmp = []
             for row in csv.reader(csv_file):
-                if row != []:
-                    if row[0] == "Encrypt":
-                        my_csv_data = list(csv.reader(csv_file))
-                        #csv_enc_data = my_csv_data[1:1000]
-                        csv_dec_data = my_csv_data[1003:2003]
+                if row[0] == "Encrypt":
+                    my_csv_data = list(csv.reader(csv_file))
+                    #csv_enc_data = my_csv_data[1:1000]
+                    csv_dec_data = my_csv_data[1:1000]
+                    #csv_dec_data = my_csv_data[1003:2003]
         
         tmp = []
         tmp_dec = []
@@ -132,9 +134,9 @@ def plot_graphs(logexp):
     width = 0.35  # the width of the bars
 
     fig, ax = plt.subplots()
-    rects1 = ax.bar(x - width/1.9, means_enc, width, label='Controller-based encryption', yerr=std_enc, align='center',ecolor='black', capsize=10, color=['grey'])
-    rects2 = ax.bar(x + width/1.9, means_dec, width, label='Embedded encryption', yerr=std_dec, align='center',ecolor='black', capsize=10, color=['silver'])
-    ax.set_ylim([0,105])
+    rects1 = ax.bar(x - width/1.9, means_enc, width, ls="-", hatch="/", label='Controller-based encryption', yerr=std_enc, align='center',ecolor='black', capsize=10, color=['white'])
+    rects2 = ax.bar(x + width/1.9, means_dec, width, ls="-", hatch="/", label='Embedded encryption', yerr=std_dec, align='center',ecolor='black', capsize=10, color=['white'])
+    ax.set_ylim([0,108])
     format_axis(ax)
     format_plot(ax,"Average time (ms)", "AES key size")
     
