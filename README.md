@@ -3,6 +3,20 @@
 
 A pure P4 implementation towards Diffie-Hellman key exchange with AES encryption.
 
+# How to cite this work
+dh-aes-p4 was presented in 2021 IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN).
+```bibtex
+@INPROCEEDINGS{9665012,
+  author={Oliveira, Isaac and Neto, Emídio and Immich, Roger and Fontes, Ramon and Neto, Augusto and Rodriguez, Fabrício and Rothenberg, Christian Esteve},
+  booktitle={2021 IEEE Conference on Network Function Virtualization and Software Defined Networks (NFV-SDN)}, 
+  title={dh-aes-p4: On-premise encryption and in-band key-exchange in P4 fully programmable data planes}, 
+  year={2021},
+  volume={},
+  number={},
+  pages={148-153},
+  keywords={Conferences;Prototypes;Turning;Hazards;Encryption;Network function virtualization;Computational efficiency},
+  doi={10.1109/NFV-SDN53031.2021.9665012}}
+```
 # Demo
 
 [<img src="imgs/demo.png" width="700" height="400">](https://www.youtube.com/watch?v=vKngddt_brA)
